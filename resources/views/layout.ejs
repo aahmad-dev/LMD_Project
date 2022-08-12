@@ -15,8 +15,15 @@
     <h1>Layout</h1>
     <hr>
 
+    <% if(user) { %>
+    <form id="logout" action="/logout" method="POST">
+        <a onclick="document.getElementById('logout').submit()" class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Log Out</a>
+
+    </form>
+    <% } else { %>
     <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" href="/login">Login</a>
     <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" href="/register">Register</a>
+    <% } %>
 
     <hr>
 </nav>
