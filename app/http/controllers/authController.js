@@ -30,7 +30,10 @@ function authController() {
                     }
                     console.log(info.message)
 
-                    return res.redirect('/')
+                    if(user.role = "courier"){
+
+                        return res.redirect('/user')
+                    }
                 })
             })(req, res, next)
 

@@ -11,23 +11,74 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<nav>
+<% if(user) { %>
+<nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+<% } else { %>
+<nav class="flex items-center justify-between flex-wrap bg-blue-700 p-6">
+<% } %>
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+      <span class="font-semibold text-xl tracking-tight">Last Mile Delivery</span>
+    </div>
+    <div class="block lg:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-blue-200 border-blue-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div class="w-full block flex lg:flex lg:items-left lg:w-auto"></div>
+      <div class="text-sm lg:flex-grow">
+        <% if(user) { %>
+          <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-200">
+            Home
+          </a>
+          <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-200">
+            |  Account
+          </a>
+  
+          <% } else { %>
+          <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-200">
+          Home
+          </a>
+        <% } %>
+      </div>
+      <div>
+
+        <% if(user) { %>
+        <form id="logout" action="/logout" method="POST">
+            <a onclick="document.getElementById('logout').submit()" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 lg:mt-0">Log Out</a>
+    
+        </form>
+        <% } else { %>
+        <a class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 lg:mt-0" href="/login">Login</a>
+        <a class="inline-block text-sm px-4 py-2 leading-none border rounded bg-white text-blue-500 border-blue-500 hover:border-transparent hover:text-white hover:bg-blue-500 mt-4 lg:mt-0" href="/register">Register</a>
+        <% } %>
+        
+      </div>
+    </div>
+  </nav>
+
+
+  
+<!--
+
+  <nav>
     <h1>Layout</h1>
     <hr>
-
+    
     <% if(user) { %>
-    <form id="logout" action="/logout" method="POST">
+      <form id="logout" action="/logout" method="POST">
         <a onclick="document.getElementById('logout').submit()" class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Log Out</a>
-
-    </form>
-    <% } else { %>
-    <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" href="/login">Login</a>
+        
+      </form>
+      <% } else { %>
+        <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" href="/login">Login</a>
     <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800" href="/register">Register</a>
     <% } %>
-
+    
     <hr>
-</nav>
-<body>
+  </nav>
+-->
+  <body>
 
     <script src="/js/app.js"></script>
 
