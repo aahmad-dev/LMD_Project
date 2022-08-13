@@ -14,7 +14,7 @@ const MongoDBStore = require('connect-mongo')
 
 
 //Database connection
-const url = 'mongodb+srv://dhruv:lmd@lmd.zh0hqt6.mongodb.net/LMD';
+const url = MONGO_DB_URL;
 mongoose.connect(url);
 
 const connection = mongoose.connection;
